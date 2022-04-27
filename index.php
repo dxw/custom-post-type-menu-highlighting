@@ -1,16 +1,15 @@
 <?php
 /**
- * WordPress Plugin
+ * Custom Post Type Menu Highlighting
  *
- * @package     WordPressPlugin
+ * @package     CustomPostTypeMenuHighlighting
  * @author      dxw
- * @copyright   2020
+ * @copyright   2022
  * @license     MIT
  *
- * @wordpress-plugin
- * Plugin Name: WordPress Plugin
- * Plugin URI: https://github.com/dxw/wordpress-plugin
- * Description: TODO
+ * Plugin Name: Custom Post Type Menu Highlighting
+ * Plugin URI: https://github.com/dxw/custom-post-type-menu-highlighting
+ * Description: Highlight menu items as parents of specified custom post types
  * Author: dxw
  * Version: 0.1.0
  * Network: True
