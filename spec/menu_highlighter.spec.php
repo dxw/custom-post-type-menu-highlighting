@@ -23,7 +23,7 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
             beforeEach(function () {
                 allow('is_tax')->toBeCalled()->andReturn(true);
             });
-            context('but this is not the selected parent', function () {
+            context('but this menu item is not the selected parent for this taxonomy', function () {
                 it('removes the current_page_parent class if it is already there', function () {
                     $classes = [
                         'current_page_parent',
@@ -40,7 +40,7 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
                     expect($result)->toEqual([1=> 'foo', 2=> 'bar', 3=> 'tax-type-taxonomy-one']);
                 });
             });
-            context('and this is the selected parent', function () {
+            context('and this menu item is the selected parent for this taxonomy', function () {
                 it('adds the current_page_parent marker class', function () {
                     $classes = [
                         'foo',
@@ -54,6 +54,65 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
     
                     $result = $this->menuHighlighter->addHighlightClass($classes, $item);
                     expect($result)->toEqual(['foo', 'bar', 'tax-type-taxonomy-one', 'current_page_parent']);
+                });
+            });
+        });
+        context('the menu item is the blog index page', function () {
+            context('and the post type is default post', function () {
+                it('does not remove the current page parent marker if it exists', function () {
+                    $classes = [
+                        'foo',
+                        'bar',
+                        'current_page_parent'
+                    ];
+                    $item = (object) [
+                        'object_id' => 123
+                    ];
+                    allow('is_tax')->toBeCalled()->andReturn(false);
+                    allow('get_post_type')->toBeCalled()->andReturn('post');
+                    allow('get_option')->toBeCalled()->andReturn(123);
+    
+                    $result = $this->menuHighlighter->addHighlightClass($classes, $item);
+                    expect($result)->toEqual(['foo', 'bar', 'current_page_parent']);
+                });
+            });
+            context('and the post type is not default post', function () {
+                it('does remove the current page parent marker if it exists', function () {
+                    $classes = [
+                        'foo',
+                        'bar',
+                        'current_page_parent'
+                    ];
+                    $item = (object) [
+                        'object_id' => 123
+                    ];
+                    allow('is_tax')->toBeCalled()->andReturn(false);
+                    allow('get_post_type')->toBeCalled()->andReturn('custom');
+                    allow('get_option')->toBeCalled()->andReturn(123);
+    
+                    $result = $this->menuHighlighter->addHighlightClass($classes, $item);
+                    expect($result)->toEqual(['foo', 'bar']);
+                });
+            });
+        });
+
+        context('we are viewing a custom post type', function () {
+            context('and this menu item has been marked as the parent for this custom post type', function () {
+                it('adds the current page parent class to the classes', function () {
+                    $classes = [
+                        'foo',
+                        'bar',
+                        'post-type-custom'
+                    ];
+                    $item = (object) [
+                        'object_id' => 123
+                    ];
+                    allow('is_tax')->toBeCalled()->andReturn(false);
+                    allow('get_post_type')->toBeCalled()->andReturn('custom');
+                    allow('get_option')->toBeCalled()->andReturn(456);
+    
+                    $result = $this->menuHighlighter->addHighlightClass($classes, $item);
+                    expect($result)->toEqual(['foo', 'bar', 'post-type-custom', 'current_page_parent']);
                 });
             });
         });

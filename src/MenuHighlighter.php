@@ -21,6 +21,18 @@ class MenuHighlighter implements \Dxw\Iguana\Registerable
             if (in_array($this_type_class, $classes)) {
                 array_push($classes, $currentMarkerClass);
             };
+        } else {
+            $post_type = get_post_type();
+            // Prevent CPT from highlighting the blog index page;
+            // run only if the post type is a CPT - don't mess with posts.
+            if ('post' !== $post_type && get_option('page_for_posts') === $item->object_id) {
+                $classes = $this->removeDefaultCurrentMarker($classes, $currentMarkerClass);
+            }
+    
+            $this_type_class = 'post-type-' . $post_type;
+            if (in_array($this_type_class, $classes)) {
+                array_push($classes, $currentMarkerClass);
+            };
         }
         return $classes;
     }
