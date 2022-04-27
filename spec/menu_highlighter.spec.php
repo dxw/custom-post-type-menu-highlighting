@@ -24,9 +24,9 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
                 allow('is_tax')->toBeCalled()->andReturn(true);
             });
             context('but this menu item is not the selected parent for this taxonomy', function () {
-                it('removes the current_page_parent class if it is already there', function () {
+                it('removes the current-menu-ancestor class if it is already there', function () {
                     $classes = [
-                        'current_page_parent',
+                        'current-menu-ancestor',
                         'foo',
                         'bar',
                         'tax-type-taxonomy-one'
@@ -41,7 +41,7 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
                 });
             });
             context('and this menu item is the selected parent for this taxonomy', function () {
-                it('adds the current_page_parent marker class', function () {
+                it('adds the current-menu-ancestor marker class', function () {
                     $classes = [
                         'foo',
                         'bar',
@@ -53,7 +53,7 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
                     ]);
     
                     $result = $this->menuHighlighter->addHighlightClass($classes, $item);
-                    expect($result)->toEqual(['foo', 'bar', 'tax-type-taxonomy-one', 'current_page_parent']);
+                    expect($result)->toEqual(['foo', 'bar', 'tax-type-taxonomy-one', 'current-menu-ancestor']);
                 });
             });
         });
@@ -63,7 +63,7 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
                     $classes = [
                         'foo',
                         'bar',
-                        'current_page_parent'
+                        'current-menu-ancestor'
                     ];
                     $item = (object) [
                         'object_id' => 123
@@ -73,7 +73,7 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
                     allow('get_option')->toBeCalled()->andReturn(123);
     
                     $result = $this->menuHighlighter->addHighlightClass($classes, $item);
-                    expect($result)->toEqual(['foo', 'bar', 'current_page_parent']);
+                    expect($result)->toEqual(['foo', 'bar', 'current-menu-ancestor']);
                 });
             });
             context('and the post type is not default post', function () {
@@ -81,7 +81,7 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
                     $classes = [
                         'foo',
                         'bar',
-                        'current_page_parent'
+                        'current-menu-ancestor'
                     ];
                     $item = (object) [
                         'object_id' => 123
@@ -112,7 +112,7 @@ describe(Dxw\CustomPostTypeMenuHighlighter\MenuHighlighter::class, function () {
                     allow('get_option')->toBeCalled()->andReturn(456);
     
                     $result = $this->menuHighlighter->addHighlightClass($classes, $item);
-                    expect($result)->toEqual(['foo', 'bar', 'post-type-custom', 'current_page_parent']);
+                    expect($result)->toEqual(['foo', 'bar', 'post-type-custom', 'current-menu-ancestor']);
                 });
             });
         });

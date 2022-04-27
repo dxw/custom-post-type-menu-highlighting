@@ -11,7 +11,7 @@ class MenuHighlighter implements \Dxw\Iguana\Registerable
 
     public function addHighlightClass(array $classes, object $item) : array
     {
-        $currentMarkerClass = 'current_page_parent';
+        $currentMarkerClass = 'current-menu-ancestor';
 
         if (is_tax()) {
             // Prevent Taxonomy archives from highlighting the blog index page.
