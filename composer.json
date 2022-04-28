@@ -1,6 +1,6 @@
 {
-    "name": "dxw/wordpress-plugin-template",
-    "homepage": "https://github.com/dxw/wordpress-plugin-template",
+    "name": "dxw/custom-post-type-menu-highlighter",
+    "homepage": "https://github.com/dxw/custom-post-type-menu-highlighter",
     "type": "wordpress-plugin",
     "version": "0.1.0",
     "license": "MIT",
@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "WordPressPlugin\\": "src/"
+            "Dxw\\CustomPostTypeMenuHighlighter\\": "src/"
         }
     },
     "scripts": {
@@ -19,9 +19,9 @@
     },
     "require-dev": {
         "dxw/phar-install": "^1.1",
-        "dxw/php-cs-fixer-config": "^1.0",
+        "dxw/php-cs-fixer-config": "^2.0",
         "kahlan/kahlan": "^4.7",
-        "vimeo/psalm": "^3.16"
+        "vimeo/psalm": "^4.22"
     },
     "require": {
         "php": "^7.4",

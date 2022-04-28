@@ -4,6 +4,7 @@
     <directory name="src"/>
     <ignoreFiles>
       <file name="vendor.phar"/>
+      <directory name="vendor"/>
     </ignoreFiles>
   </projectFiles>
   <issueHandlers>
