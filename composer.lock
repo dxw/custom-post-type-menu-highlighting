@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8a759f072666ce1bc66673b39fef5f4",
+    "content-hash": "331373dc19df8b28c6844c7b232f1784",
     "packages": [
         {
             "name": "aura/autoload",
@@ -1096,23 +1096,24 @@
         },
         {
             "name": "kahlan/kahlan",
-            "version": "4.7.7",
+            "version": "5.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kahlan/kahlan.git",
-                "reference": "36ec916f7c7b067239431d3da0dc1da172bc98bb"
+                "reference": "8a403d35bd564a2a315a7c4544e73827ef56c540"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kahlan/kahlan/zipball/36ec916f7c7b067239431d3da0dc1da172bc98bb",
-                "reference": "36ec916f7c7b067239431d3da0dc1da172bc98bb",
+                "url": "https://api.github.com/repos/kahlan/kahlan/zipball/8a403d35bd564a2a315a7c4544e73827ef56c540",
+                "reference": "8a403d35bd564a2a315a7c4544e73827ef56c540",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
+                "php": ">=7.2"
             },
             "require-dev": {
-                "squizlabs/php_codesniffer": "^3.4"
+                "rector/rector": "^1.1.1",
+                "squizlabs/php_codesniffer": "^3.10.1"
             },
             "bin": [
                 "bin/kahlan"
@@ -1148,9 +1149,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kahlan/kahlan/issues",
-                "source": "https://github.com/kahlan/kahlan/tree/4.7.7"
+                "source": "https://github.com/kahlan/kahlan/tree/5.2.8"
             },
-            "time": "2020-10-17T08:37:23+00:00"
+            "time": "2024-10-18T19:01:44+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
