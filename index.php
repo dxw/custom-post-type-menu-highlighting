@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom Post Type Menu Highlighting
  *
