@@ -12,7 +12,7 @@
  * Plugin URI: https://github.com/dxw/custom-post-type-menu-highlighting
  * Description: Highlight menu items as parents of specified custom post types
  * Author: dxw
- * Version: 1.0.0
+ * Version: 1.1.0
  * Network: True
  */
 
