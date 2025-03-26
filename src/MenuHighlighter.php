@@ -17,10 +17,12 @@ class MenuHighlighter implements \Dxw\Iguana\Registerable
 			// Prevent Taxonomy archives from highlighting the blog index page.
 			$classes = $this->removeDefaultCurrentMarker($classes, $currentMarkerClass);
 
-			$this_type_class = 'tax-type-' . get_queried_object()->taxonomy;
-			if (in_array($this_type_class, $classes)) {
-				array_push($classes, $currentMarkerClass);
-			};
+			if (!empty(get_queried_object()->taxonomy)) {
+				$this_type_class = 'tax-type-' . get_queried_object()->taxonomy;
+				if (in_array($this_type_class, $classes)) {
+					array_push($classes, $currentMarkerClass);
+				};
+			}
 		} else {
 			$post_type = get_post_type();
 			// Prevent CPT from highlighting the blog index page;
