@@ -2,8 +2,10 @@
 
 namespace Dxw\CustomPostTypeMenuHighlighter;
 
-class MenuHighlighter implements \Dxw\Iguana\Registerable
+/** @api */
+final class MenuHighlighter implements \Dxw\Iguana\Registerable
 {
+	#[\Override]
 	public function register(): void
 	{
 		add_filter('nav_menu_css_class', [$this, 'addHighlightClass'], 10, 2);
